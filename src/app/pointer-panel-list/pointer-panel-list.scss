@@ -1,0 +1,33 @@
+.grid-container {
+  padding: 0;
+
+}
+
+.image-details-panel {
+  position: absolute;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 390px;
+  z-index: 1;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}

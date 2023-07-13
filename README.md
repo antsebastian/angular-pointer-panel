@@ -1,27 +1,66 @@
-# PointerPanel
+### Pointer Panel – An Angular 6 Component
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+The pointer panel is a master/detail component that displays a wrapped list of cards and shows details of the selected
+card. It has a responsive layout and uses the current material theme. I got the idea from Google images and am using
+this component mainly for my portfolio.
 
-## Development server
+Live Demo: https://pointerpaneldemo2.firebaseapp.com/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![ScreenShot](pointerpaneldemo_dark.jpg)
 
-## Code scaffolding
+### Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Pointer Panel requires a collection of items and two templates as shown below.
 
-## Build
+```html
+<!--ITEM DETAILS TEMPLATE-->
+<ng-template #myItemDetailsTemplate let-dataDetails>
+  <p>{{dataDetails.jsonData?.fullDesc}}</p>
+<ng-template>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<!--ITEM CARD TEMPLATE-->
+<ng-template #myItemTemplate let-dataItem>
+ <p>{{dataItem.jsonData?.name}}</p>;
+</ng-template>;
 
-## Running unit tests
+<!-- POINTER PANEL LIST -->
+<pointer-panel-list [itemTemplate]='myItemTemplate'
+                    [itemDetailsTemplate]='myItemDetailsTemplate'
+                    [dataSource]='cards$'/>
+</pointer-panel-list>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+…in the .ts file
 
-## Running end-to-end tests
+public cards: Array<StarWarsModel> = new Array<StarWarsModel>();
+cards$ = of( this.cards);
+ ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Managing Data
 
-## Further help
+Pointer panel uses IteratableDiffer based checking to realize if the underlying data has changed to update the UI so
+your data changes (such as adding or removing a record) can be inline or return a new collection. For instance, use
+push, splice, spread, or slice to modify the data source and the pointer panel will update automatically.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+dataSource can be an array or an observable, if an array is used then pointer panel will make its own observable.
+
+### Themes and styles
+
+Pointer panel uses the material theme loaded by the application.
+
+### Responsive
+
+Pointer panel should display properly on all devices.
+
+### Dependencies
+
+Angular 6, Material and ngFlex
+
+### Future Features
+
+Below are the features I would add next:
+
+1. Add ability to show details in column. Would work better for wide screens. It could auto detect or be set via
+   properties.
+2. Add configurable height to details panel.
+3. Add virtualization to the list.
+4. Add keyboard support to navigate and select the cards.

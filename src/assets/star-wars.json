@@ -1,0 +1,66 @@
+[
+  {
+    "name": "C3PO",
+    "avatarSrc": "./assets/c3po_a.jpg",
+    "fullSrc": "./assets/c3po.jpg",
+    "subtitle": "Lorem ipsum dolor sit amet",
+    "fullDesc": "Vestibulum consequat orci quis massa sollicitudin tristique. In euismod faucibus sagittis. Phasellus lobortis, est vitae vestibulum finibus, nulla nisl lacinia nulla, et suscipit ligula nulla in risus. Mauris consectetur urna ut sem semper lacinia. Nulla tempor imperdiet blandit. Duis nec ex at nisl dapibus ultrices in id libero. Vestibulum a erat et justo suscipit placerat. Aliquam in gravida felis. Fusce elementum congue justo sit amet ultricies. Ut nec lectus vel nulla ultricies vehicula. Nulla sed feugiat metus. Morbi cursus pellentesque risus nec convallis. Donec aliquam lacus eu convallis porttitor.",
+    "birthdate": "09/29/1968"
+  },
+  {
+    "name": "Chewy",
+    "avatarSrc": "./assets/chewy_a.jpg",
+    "fullSrc": "./assets/chewy.jpg",
+    "subtitle": "Etiam ornare vehicula nulla",
+    "fullDesc": "Pellentesque eu dui lacus. Curabitur a suscipit ante. Aliquam eget tempor massa. Praesent rhoncus ante vel volutpat porttitor. Duis gravida posuere orci, at hendrerit leo porttitor in. Etiam dapibus magna at velit mollis, vel elementum urna hendrerit. Nulla nec ipsum tortor. Vivamus in viverra nunc. Aliquam nec est ultrices, ornare orci quis, porttitor nunc. Quisque cursus aliquam viverra. Vestibulum hendrerit mi orci, vitae tempus est rutrum vitae.",
+    "birthdate": "01/05/1978"
+  },
+  {
+    "name": "Darth Vader",
+    "avatarSrc": "./assets/darthvader_a.jpg",
+    "fullSrc": "./assets/darthvader.jpg",
+    "subtitle": "Interdum et malesuada fames",
+    "fullDesc": "Fusce iaculis vitae orci vel commodo. Suspendisse fermentum nisl sapien, eu maximus nibh pretium egestas. Aliquam mollis velit a arcu blandit sagittis. Donec aliquam consequat orci, quis cursus lorem. Nunc at ullamcorper sapien. Donec fermentum quam id convallis dictum. Nam cursus, nunc at lobortis porttitor, justo nulla eleifend risus, sit amet convallis enim magna sed turpis. Mauris semper quam et dolor suscipit faucibus.",
+    "birthdate": "06/18/1950"
+  },
+  {
+    "name": "Millennial Falcon",
+    "avatarSrc": "assets/milenialfalcon_a.jpg",
+    "fullSrc": "./assets/milenialfalcon.jpg",
+    "subtitle": "Vivamus varius nisl ut ipsum",
+    "fullDesc": "Quisque at enim vel mi condimentum fermentum in at massa. Suspendisse vitae nunc mollis, egestas tortor in, porttitor diam. Proin rutrum leo sit amet sapien suscipit, sit amet scelerisque risus blandit. Nunc ut fermentum massa. Donec et eros nec magna convallis varius. Nullam eget purus eget velit suscipit aliquam in sit amet nunc. Aliquam sed lorem eu odio facilisis egestas. Vestibulum ac ipsum at elit vestibulum blandit. Proin vitae sem scelerisque, malesuada nunc et, tincidunt elit. Integer mattis augue ac consectetur rhoncus. Nulla volutpat euismod elementum. Fusce a dignissim mauris.",
+    "birthdate": "06/18/1950"
+  },
+  {
+    "name": "R2D2",
+    "avatarSrc": "./assets/r2d2_a.jpg",
+    "fullSrc": "./assets/r2d2.jpg",
+    "subtitle": "Aliquam aliquam tellus id dolor",
+    "fullDesc": "Suspendisse sollicitudin, massa eget aliquet venenatis, ligula diam euismod ex, nec porttitor velit nibh at ex. Mauris varius nisi in arcu dapibus lobortis. Aenean ullamcorper et dolor non pulvinar. Nullam in justo est. Pellentesque quis posuere mauris, eget finibus sem. Donec sollicitudin nisl quis ipsum luctus iaculis. Cras sed odio odio. Suspendisse id ante tincidunt, luctus lacus a, commodo libero. Praesent ante diam, aliquam sed laoreet in, dignissim quis orci. Aliquam maximus tristique nunc, at elementum nisl. Pellentesque a accumsan enim. Pellentesque ipsum sem, luctus at maximus eu, vestibulum id purus. Donec malesuada sem urna, id varius urna facilisis vel. Pellentesque orci sapien, faucibus nec dignissim a, mollis in ipsum.",
+    "birthdate": "06/18/1950"
+  },
+  {
+    "name": "Storm Trooper",
+    "avatarSrc": "./assets/stormtrooper_a.jpg",
+    "fullSrc": "./assets/stormtrooper.jpg",
+    "subtitle": "Sed venenatis arcu at elit vestibulum",
+    "fullDesc": "Donec efficitur nulla ut ex cursus ultricies. Etiam rutrum urna eu porta pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam quis felis consequat, dapibus metus at, pulvinar turpis. Etiam ultricies faucibus turpis, sed blandit justo rhoncus ac. Morbi in mollis eros. Maecenas euismod, nibh et tristique faucibus, neque neque venenatis ex, eu rhoncus metus dui vel lacus. Sed tincidunt, augue vitae consectetur egestas, tortor eros vulputate orci, et vulputate tortor lacus eu lorem. Cras hendrerit lectus eget volutpat gravida. Vestibulum sit amet diam vitae sem pellentesque laoreet.",
+    "birthdate": "06/18/1950"
+  },
+  {
+    "name": "WSDOT",
+    "avatarSrc": "../assets/wsdot_a.jpg",
+    "fullSrc": "./assets/wsdot.jpg",
+    "subtitle": "Vivamus consectetur a ante sit amet",
+    "fullDesc": "Ut quis venenatis ante. Donec at mauris vel ex faucibus posuere. Vivamus ante turpis, auctor vitae massa eget, scelerisque accumsan sem. Duis at molestie neque. Suspendisse rutrum, sem nec fringilla tincidunt, ante elit tincidunt erat, a hendrerit lacus nunc fringilla arcu. Sed nulla justo, ullamcorper id sodales a, mattis nec turpis. Sed auctor velit sit amet sagittis rutrum. Ut vitae nunc et ligula mollis mattis. Curabitur nec magna accumsan, tempus lectus at, pulvinar odio. Suspendisse fringilla, ex at vehicula ornare, libero enim tempus felis, eu bibendum est nunc et justo. Ut tristique semper urna et cursus.",
+    "birthdate": "06/18/1950"
+  },
+  {
+    "name": "Yoda",
+    "avatarSrc": "./assets/yoda_a.jpg",
+    "fullSrc": "./assets/yoda.jpg",
+    "subtitle": "Ut vitae tellus nisl",
+    "fullDesc": "Vestibulum vestibulum eu ante id scelerisque. Mauris dolor eros, luctus sed tincidunt vitae, porta eget dolor. Aliquam vel nibh quis mi ullamcorper rutrum. Mauris lobortis justo iaculis sem pulvinar, in aliquam mi semper. Aliquam porta gravida mollis. Suspendisse potenti. Aliquam sit amet dapibus felis. Vivamus placerat lectus a ornare maximus. Aenean dapibus aliquam quam, sed elementum diam vulputate nec. Nunc eleifend nunc mauris, vitae finibus sem rhoncus et. Suspendisse consectetur sodales ultricies.",
+    "birthdate": "06/18/1950"
+  }
+]
