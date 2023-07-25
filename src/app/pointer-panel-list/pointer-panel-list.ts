@@ -4,6 +4,7 @@ import {
   Component,
   DoCheck,
   ElementRef,
+  HostListener,
   Input,
   IterableChangeRecord,
   IterableDiffer,
@@ -76,6 +77,10 @@ export class PointerPanelList<T> implements OnInit, OnDestroy, AfterViewInit, Af
     } else {
       return 'close';
     }
+  }
+
+  @HostListener('window:resize', ['$event']) onResize(event) {
+    this.setDetailPanelPosition();
   }
 
   @Input()
