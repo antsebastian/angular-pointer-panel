@@ -59,7 +59,7 @@ export class PointerPanelList<T> implements OnInit, OnDestroy, AfterViewInit, Af
   @Input() itemTemplate: TemplateRef<T>;
   @Input() itemDetailsTemplate: TemplateRef<T>;
   @ViewChild(PointerPanelDetails) detailsPanel: PointerPanelDetails<T>;
-  @ViewChild('gridcontainer') gridContainer: ElementRef;
+  @ViewChild('listContainer') gridContainer: ElementRef;
   @ViewChildren(PointerPanelItem) listViewChildren: QueryList<PointerPanelItem<T>>;
   detailsPanelTop = 0;
   detailsPointerLeft = 0;

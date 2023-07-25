@@ -6,14 +6,16 @@
   $accent: map-get($theme, accent);
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
+  $ic-border-color: mat.get-color-from-palette($foreground, divider);
 
-  #card-details-indicator {
+
+  .item-details-indicator {
     width: 25%;
     height: 5px;
     background-color: mat.get-color-from-palette($primary);
   }
 
-  #card-details-indicator-container {
+  .item-details-indicator-container {
     position: relative;
     bottom: 5px;
     visibility: hidden;
@@ -32,25 +34,22 @@
     flex-direction: column;
   }
 
-  $ic-border-color: mat.get-color-from-palette($foreground, divider);
-
   .svg-details-pointer {
     position: relative;
   }
 
-  #pointer-poly {
+  .pointer-poly {
     stroke: $ic-border-color;
     stroke-width: 1px;
     fill: none;
-
   }
 
-  #pointer-path {
+  .pointer-path {
     fill: mat.get-color-from-palette($background, card);
   }
 
 
-  #div-details-panel {
+  .div-details-panel {
     flex: 1;
     border: $ic-border-color solid 1px;
     border-radius: 2px;

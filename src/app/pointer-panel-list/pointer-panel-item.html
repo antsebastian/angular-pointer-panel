@@ -1,13 +1,9 @@
-<div #imageContainer (click)="select()" [@in-out-ani]
+<div #itemContainer (click)="select()" [@in-out-ani]
      [style.transform]="isSelected ? 'translateY(0px)' : 'translateY(0px)'"
-     class="image-container">
+     class="item-container">
   <ng-template *ngTemplateOutlet="itemTemplate; context: {$implicit: data}"></ng-template>
   <div [style.visibility]="isSelected ? 'visible' : 'hidden'"
-       id="card-details-indicator-container">
-    <div id="card-details-indicator"></div>
+       class="item-details-indicator-container">
+    <div class="item-details-indicator"></div>
   </div>
 </div>
-
-
-<!--
--->

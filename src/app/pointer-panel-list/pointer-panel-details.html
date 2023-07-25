@@ -1,17 +1,17 @@
 <div class="details-panel-grid">
-  <svg #pointer (@animate-pointer.done)="handleDone()"
-       [@animate-pointer]="{value: pointerState, params: { from: pointerFrom, to: pointerTo}}"
-       [style.height]="pointerHeight"
-       [style.width]="pointerWidth" class="svg-details-pointer">
+  <svg
+    [@animate-pointer]="{value: pointerState, params: { from: pointerFrom, to: pointerTo}}"
+    [style.height]="pointerHeight"
+    [style.width]="pointerWidth" class="svg-details-pointer">
     <path
       [attr.d]="'M ' + pointerWidth * 0.5 + ' 0 L0 ' + pointerHeight + ' L' + pointerWidth + ' ' + pointerHeight + ' Z'"
-      id="pointer-path">
+      class="pointer-path">
     </path>
     <polyline
       [attr.points]="'0,' + pointerHeight + ' ' + pointerWidth * 0.5 + ',0' + ' '+  pointerWidth + ',' + pointerHeight"
-      id="pointer-poly"></polyline>
+      class="pointer-poly"></polyline>
   </svg>
-  <div class="mat-elevation-z2" id="div-details-panel">
+  <div class="mat-elevation-z2" class="div-details-panel">
     <button (click)="close.emit()" mat-icon-button style="position:absolute; top:20px; right:0">
       <mat-icon>close</mat-icon>
     </button>

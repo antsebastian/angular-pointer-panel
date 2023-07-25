@@ -1,4 +1,4 @@
-<div #gridcontainer class="grid-container">
+<div #listContainer class="list-container">
   <div [style.flex-flow]="small ? 'column' : 'row wrap'" style="display: flex;">
     <pointer-panel-item #ic (selectionChanged)="icSelectionChanged(ic)"
                         *ngFor="let item of data; let i = index"

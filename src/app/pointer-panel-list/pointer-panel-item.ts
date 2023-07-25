@@ -34,7 +34,7 @@ export function InOutAni(name) {
 })
 export class PointerPanelItem<T> implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild('imageContainer') translatedContainer: ElementRef;
+  @ViewChild('itemContainer') translatedContainer: ElementRef;
   @Input() itemsPanelTop: number;
   @Output() selectionChanged: EventEmitter<any> = new EventEmitter();
   @Input() yTranslate = 385;
