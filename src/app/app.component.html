@@ -33,10 +33,23 @@
 
 <!-- MAIN APP -->
 <div class="mat-app-background app-container">
-  <mat-toolbar class="mat-elevation-z4" color="primary" style="z-index: 5; position: relative; align-items: center">
-    <h2>Pointer Panel Demo</h2>
-    <span style="margin-right: 20px"></span>
-    <button (click)="addCard()" mat-button>ADD</button>
+  <mat-toolbar class="mat-elevation-z4" color="primary"
+               style="z-index: 5; position: relative; display: flex;
+               flex-direction: row; align-items: center; gap: 10px">
+    <div style="display: flex; flex-flow: column; align-items: start">
+      <span>Pointer Panel Demo</span>
+      <span
+        style="font-size: 10px;margin:0; line-height: 10px; flex-flow: row wrap;">Written by Anthony Sebastian</span>
+    </div>
+    <button (click)="addItem()"
+            aria-label="Add item" mat-icon-button matTooltip="Add an item">
+      <mat-icon>add</mat-icon>
+    </button>
+    <span style="flex: 1 1 0"></span>
+    <button (click)="goToDoc()"
+            aria-label="Open documentation" mat-icon-button
+            matTooltip="Open GitHub source code and documentation in a new browser tab">
+      <img alt="" src="../assets/GitHub-Mark-Light-32px.png"/></button>
   </mat-toolbar>
   <div class="app-body">
     <pointer-panel-list [dataSource]="$cards"

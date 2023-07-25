@@ -29,7 +29,7 @@ export class AppComponent {
   }
 
 
-  addCard() {
+  addItem() {
     const jsonData =
       JSON.parse('{ "name":"' + 'Card ' + this.uniqueId++ + '", "avatarSrc":"./assets/hanssolo_a.jpg", ' +
         '"fullSrc":"./assets/hanssolo.jpg", "subtitle": "Test pointer position", ' +
@@ -54,5 +54,9 @@ export class AppComponent {
     }, () => {
       console.log('delete click complete');
     });
+  }
+
+  goToDoc() {
+    window.open("https://github.com/antsebastian/angular-pointer-panel", "_blank");
   }
 }

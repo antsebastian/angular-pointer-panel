@@ -12,7 +12,8 @@
       class="pointer-poly"></polyline>
   </svg>
   <div class="mat-elevation-z2" class="div-details-panel">
-    <button (click)="close.emit()" mat-icon-button style="position:absolute; top:20px; right:0">
+    <button (click)="close.emit()" [matTooltip]="'Close details panel'" mat-icon-button
+            style="position:absolute; top:20px; right:0">
       <mat-icon>close</mat-icon>
     </button>
     <ng-template *ngTemplateOutlet="itemDetailsTemplate; context: {$implicit: data}"></ng-template>

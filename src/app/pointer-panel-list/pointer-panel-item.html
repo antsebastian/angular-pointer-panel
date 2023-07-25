@@ -1,7 +1,7 @@
-<div #itemContainer (click)="select()" [@in-out-ani]
-     [style.transform]="isSelected ? 'translateY(0px)' : 'translateY(0px)'"
+<div #itemContainer (click)="select()"
      class="item-container">
-  <ng-template *ngTemplateOutlet="itemTemplate; context: {$implicit: data}"></ng-template>
+  <ng-template *ngTemplateOutlet="itemTemplate; context: {$implicit: data}"
+               [matTooltip]="'Click for item details'"></ng-template>
   <div [style.visibility]="isSelected ? 'visible' : 'hidden'"
        class="item-details-indicator-container">
     <div class="item-details-indicator"></div>

@@ -48,7 +48,6 @@
     fill: mat.get-color-from-palette($background, card);
   }
 
-
   .div-details-panel {
     flex: 1;
     border: $ic-border-color solid 1px;
@@ -66,5 +65,4 @@
     background: mat.get-color-from-palette($background, background);
     transform-origin: bottom;
   }
-
 }
