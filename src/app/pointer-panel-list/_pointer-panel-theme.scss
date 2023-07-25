@@ -1,0 +1,70 @@
+@use 'node_modules/@angular/material' as mat;
+
+@mixin pointer-panel-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $ic-border-color: mat.get-color-from-palette($foreground, divider);
+
+  //themed items
+  .item-details-indicator {
+    width: 25%;
+    height: 5px;
+    background-color: mat.get-color-from-palette($primary);
+  }
+
+  .item-details-indicator-container {
+    position: relative;
+    bottom: 5px;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  // themed details
+  .details-panel-grid {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .svg-details-pointer {
+    position: relative;
+  }
+
+  .pointer-poly {
+    stroke: $ic-border-color;
+    stroke-width: 1px;
+    fill: none;
+  }
+
+  .pointer-path {
+    fill: mat.get-color-from-palette($background, card);
+  }
+
+
+  .div-details-panel {
+    flex: 1;
+    border: $ic-border-color solid 1px;
+    border-radius: 2px;
+    margin-top: -1px;
+    background-color: mat.get-color-from-palette($background, card);
+  }
+
+  .div-details-reveal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: mat.get-color-from-palette($background, background);
+    transform-origin: bottom;
+  }
+
+}

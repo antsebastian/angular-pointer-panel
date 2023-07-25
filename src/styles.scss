@@ -3,7 +3,7 @@
 
 @include mat.core();
 @import 'app/app.component';
-@import 'app/pointer-panel-list/pointer-panel-details';
+@import 'app/pointer-panel-list/pointer-panel-theme';
 
 $primary: mat.define-palette(mat.$deep-purple-palette);
 $accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
@@ -19,7 +19,7 @@ $foreground: map-get($theme, foreground);
 // Include all theme styles for the components.
 @include mat.all-component-themes($theme);
 @include app-component-theme($theme);
-@include details-panel-theme($theme);
+@include pointer-panel-theme($theme);
 
 html, body {
   height: 100%;
