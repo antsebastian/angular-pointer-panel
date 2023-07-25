@@ -2,9 +2,6 @@
 @use 'node_modules/@angular/material' as mat;
 
 @include mat.core();
-
-@import 'node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
-
 @import 'app/app.component';
 @import 'app/pointer-panel-list/pointer-panel-details';
 
@@ -16,11 +13,13 @@ $theme: mat.define-dark-theme((
   color: (primary: $primary, accent: $accent, warn: $warn),
 ));
 
-@include mat.all-component-themes($theme);
+$background: map-get($theme, background);
+$foreground: map-get($theme, foreground);
 
 // Include all theme styles for the components.
+@include mat.all-component-themes($theme);
 @include app-component-theme($theme);
-@include details-panel-theme($theme); /* You can add global styles to this file, and also import other style files */
+@include details-panel-theme($theme);
 
 html, body {
   height: 100%;

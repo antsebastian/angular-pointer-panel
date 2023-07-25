@@ -15,10 +15,11 @@
 
   #card-details-indicator-container {
     position: relative;
-    float: bottom;
     bottom: 5px;
     visibility: hidden;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .details-panel-grid {

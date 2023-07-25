@@ -3,8 +3,8 @@
      class="image-container">
   <ng-template *ngTemplateOutlet="itemTemplate; context: {$implicit: data}"></ng-template>
   <div [style.visibility]="isSelected ? 'visible' : 'hidden'"
-       id="card-details-indicator-container" style="display: flex; flex-direction: row; align-items: center">
-    <div id="card-details-indicator" style="align-items: end"></div>
+       id="card-details-indicator-container">
+    <div id="card-details-indicator"></div>
   </div>
 </div>
 

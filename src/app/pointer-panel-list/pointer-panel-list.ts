@@ -17,10 +17,10 @@ import {
 } from '@angular/core';
 import {ViewportRuler} from '@angular/cdk/scrolling';
 import {PointerPanelDetails} from './pointer-panel-details';
-import {Observable, of, Subject, Subscription} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import {Observable, of, Subscriber, Subscription} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {PointerPanelItem} from './pointer-panel-item';
+import {BreakpointObserver, BreakpointState} from "@angular/cdk/layout";
 
 export function MoveRowAni(name, to) {
   return trigger(name, [
@@ -63,14 +63,12 @@ export class PointerPanelList<T> implements OnInit, OnDestroy, AfterViewInit, Af
   @ViewChildren(PointerPanelItem) listViewChildren: QueryList<PointerPanelItem<T>>;
   detailsPanelTop = 0;
   detailsPointerLeft = 0;
-  private _onDestroy = new Subject<void>();
+  sink = new Subscriber();
   /** Subscription that listens for the data provided by the data source. */
   private _dataChangeSubscription: Subscription | null;
   private _selectedIndex = -1;
   private _dataDiffer: IterableDiffer<PointerPanelItem<T>>;
-
-  constructor(private ruler: ViewportRuler, protected readonly differs: IterableDiffers) {
-  }
+  small = false;
 
   get detailsPanelState(): string {
     if (this.detailsPanel) {
@@ -177,21 +175,35 @@ export class PointerPanelList<T> implements OnInit, OnDestroy, AfterViewInit, Af
     this.detailsPanel.data = null;
   }
 
+  constructor(private ruler: ViewportRuler,
+              protected readonly differs: IterableDiffers,
+              private breakpointObserver: BreakpointObserver) {
+  }
+
   ngOnInit(): void {
+    this.sink.add(this.breakpointObserver
+      .observe(['(max-width: 500px)'])
+      .subscribe((state: BreakpointState) => {
+        this.small = state.matches;
+      })
+    );
+
     this._dataDiffer = this.differs.find([]).create();
 
-    this.ruler.change().pipe(takeUntil(this._onDestroy)).subscribe(() => {
-      this.setDetailPanelPosition();
-    });
+    this.sink.add(this.ruler.change().subscribe(() => {
+        this.setDetailPanelPosition();
+      })
+    );
   }
 
   ngAfterViewInit(): void {
 
-    this.listViewChildren.changes.pipe(takeUntil(this._onDestroy)).subscribe(() => {
-      setTimeout(() => {
-        this.setDetailPanelPosition();
-      });
-    });
+    this.sink.add(this.listViewChildren.changes.subscribe(() => {
+        setTimeout(() => {
+          this.setDetailPanelPosition();
+        });
+      })
+    );
 
     this.detailsPanel.close.subscribe(() => {
       this.closeDetailsPanel();
@@ -205,8 +217,7 @@ export class PointerPanelList<T> implements OnInit, OnDestroy, AfterViewInit, Af
   }
 
   ngOnDestroy(): void {
-    this._onDestroy.next();
-    this._onDestroy.complete();
+    this.sink.unsubscribe();
   }
 
   ngDoCheck(): void {
@@ -287,7 +298,6 @@ export class PointerPanelList<T> implements OnInit, OnDestroy, AfterViewInit, Af
     }
 
     this._dataChangeSubscription = dataStream
-      .pipe(takeUntil(this._onDestroy))
       .subscribe(
         data => {
           this._data = data || [];
@@ -298,6 +308,7 @@ export class PointerPanelList<T> implements OnInit, OnDestroy, AfterViewInit, Af
         () => {
           console.log('completed');
         });
+
   }
 }
 
