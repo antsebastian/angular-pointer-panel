@@ -16,7 +16,6 @@ import {
   ViewChild,
   ViewChildren
 } from '@angular/core';
-import {ViewportRuler} from '@angular/cdk/scrolling';
 import {PointerPanelDetails} from './pointer-panel-details';
 import {Observable, of, Subscriber, Subscription} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
@@ -180,8 +179,7 @@ export class PointerPanelList<T> implements OnInit, OnDestroy, AfterViewInit, Af
     this.detailsPanel.data = null;
   }
 
-  constructor(private ruler: ViewportRuler,
-              protected readonly differs: IterableDiffers,
+  constructor(protected readonly differs: IterableDiffers,
               private breakpointObserver: BreakpointObserver) {
   }
 
@@ -194,11 +192,6 @@ export class PointerPanelList<T> implements OnInit, OnDestroy, AfterViewInit, Af
     );
 
     this._dataDiffer = this.differs.find([]).create();
-
-    this.sink.add(this.ruler.change().subscribe(() => {
-        this.setDetailPanelPosition();
-      })
-    );
   }
 
   ngAfterViewInit(): void {
