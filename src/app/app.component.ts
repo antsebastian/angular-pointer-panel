@@ -46,7 +46,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.help();
-    }, 1500);
+    }, 750);
   }
 
 
@@ -93,7 +93,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       'Dismiss',
       {
         verticalPosition: 'bottom',
-        duration: 5000
+        duration: 4000
       });
   }
 

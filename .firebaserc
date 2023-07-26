@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pointerpaneldemo2": {
+      "hosting": {
+        "pointer-panel": [
+          "pointerpaneldemo2"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pointerpaneldemo2"
+  }
+}

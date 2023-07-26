@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "pointer-panel",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
