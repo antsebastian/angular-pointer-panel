@@ -1,9 +1,5 @@
 import {Component, EventEmitter, Input, Output, TemplateRef,} from '@angular/core';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
-import {NgTemplateOutlet} from '@angular/common';
-import {MatIconModule} from '@angular/material/icon';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatButtonModule} from '@angular/material/button';
 
 export function SetPointerAni(name, from, to) {
   return trigger(name, [
@@ -51,9 +47,7 @@ export function SetRevealAni(name) {
   templateUrl: './pointer-panel-details.html',
   styleUrls: ['./pointer-panel-details.scss'],
   animations: [SetRevealAni('animate-reveal'),
-    SetPointerAni('animate-pointer', 'pointerFrom', 'pointerTo')],
-  standalone: true,
-  imports: [MatButtonModule, MatTooltipModule, MatIconModule, NgTemplateOutlet]
+    SetPointerAni('animate-pointer', 'pointerFrom', 'pointerTo')]
 })
 export class PointerPanelDetails<T> {
 
