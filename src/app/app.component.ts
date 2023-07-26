@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {IStarWarsCharacter, StarWarsModel} from "./star-wars-character";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -9,14 +10,14 @@ import {IStarWarsCharacter, StarWarsModel} from "./star-wars-character";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
   public cards: Array<StarWarsModel> = new Array<StarWarsModel>();
   $cards = of(this.cards);
 
   uniqueId = 0;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {
 
     // get the mock data
     this.getJSON().subscribe(data => {
@@ -26,6 +27,14 @@ export class AppComponent {
         this.cards.push(icm);
       });
     });
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.snackBar.open('Click on an item to see the details. Click + icon to add a new item.',
+        'Dismiss');
+
+    }, 750);
   }
 
 
