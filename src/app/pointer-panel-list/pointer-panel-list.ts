@@ -21,6 +21,7 @@ import {Observable, of, Subscriber, Subscription} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {PointerPanelItem} from './pointer-panel-item';
 import {BreakpointObserver, BreakpointState} from "@angular/cdk/layout";
+import {NgFor} from '@angular/common';
 
 export function MoveRowAni(name, to) {
   return trigger(name, [
@@ -51,7 +52,9 @@ export function MoveRowAni(name, to) {
   selector: 'pointer-panel-list',
   templateUrl: './pointer-panel-list.html',
   styleUrls: ['./pointer-panel-list.scss'],
-  animations: [MoveRowAni('animate-row-move', 'detailsRowHeight')]
+  animations: [MoveRowAni('animate-row-move', 'detailsRowHeight')],
+  standalone: true,
+  imports: [NgFor, PointerPanelItem, PointerPanelDetails]
 })
 
 export class PointerPanelList<T> implements OnInit, OnDestroy, AfterViewInit, AfterContentChecked, DoCheck {

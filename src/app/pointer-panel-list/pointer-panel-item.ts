@@ -11,6 +11,8 @@ import {
   ViewChild
 } from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {NgTemplateOutlet} from '@angular/common';
 
 
 export function InOutAni(name) {
@@ -30,7 +32,9 @@ export function InOutAni(name) {
   selector: 'pointer-panel-item',
   templateUrl: './pointer-panel-item.html',
   styleUrls: ['./pointer-panel-item.scss'],
-  animations: [InOutAni('in-out-ani')]
+  animations: [InOutAni('in-out-ani')],
+  standalone: true,
+  imports: [NgTemplateOutlet, MatTooltipModule]
 })
 export class PointerPanelItem<T> implements OnInit, AfterViewInit, OnDestroy {
 

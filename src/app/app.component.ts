@@ -4,12 +4,21 @@ import {HttpClient} from '@angular/common/http';
 import {IStarWarsCharacter, StarWarsModel} from "./star-wars-character";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {BreakpointObserver, BreakpointState} from "@angular/cdk/layout";
+import {PointerPanelList} from './pointer-panel-list/pointer-panel-list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {NgIf} from '@angular/common';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [NgIf, MatCardModule, MatToolbarModule, MatButtonModule, MatTooltipModule, MatIconModule, PointerPanelList]
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
