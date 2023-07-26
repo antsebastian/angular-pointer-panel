@@ -1,8 +1,9 @@
-import {AfterViewInit, Component} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {Observable, of, Subscription} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {IStarWarsCharacter, StarWarsModel} from "./star-wars-character";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {BreakpointObserver, BreakpointState} from "@angular/cdk/layout";
 
 
 @Component({
@@ -10,14 +11,17 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public cards: Array<StarWarsModel> = new Array<StarWarsModel>();
   $cards = of(this.cards);
 
+  sink = new Subscription();
   uniqueId = 0;
+  small = false;
 
-  constructor(private http: HttpClient, private snackBar: MatSnackBar) {
+  constructor(private http: HttpClient, private snackBar: MatSnackBar,
+              private breakpointObserver: BreakpointObserver) {
 
     // get the mock data
     this.getJSON().subscribe(data => {
@@ -27,6 +31,16 @@ export class AppComponent implements AfterViewInit {
         this.cards.push(icm);
       });
     });
+  }
+
+  ngOnInit(): void {
+    this.small = this.breakpointObserver.isMatched(['(max-width: 500px)'])
+    this.sink.add(this.breakpointObserver
+      .observe(['(max-width: 500px)'])
+      .subscribe((state: BreakpointState) => {
+        this.small = state.matches;
+      })
+    );
   }
 
   ngAfterViewInit(): void {
@@ -82,4 +96,9 @@ export class AppComponent implements AfterViewInit {
         duration: 5000
       });
   }
+
+  ngOnDestroy(): void {
+    this.sink.unsubscribe();
+  }
+
 }

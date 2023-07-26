@@ -1,7 +1,7 @@
 <!--ITEM DETAILS TEMPLATE-->
 <ng-template #myItemDetailsTemplate let-data>
   <div *ngIf="data" style="display:flex; flex-direction: row; height: 100%">
-    <div class="primary-background-color" fxHide.xs="true" fxShow="true"
+    <div [style.display]="small ? 'none': 'block'" class="primary-background-color"
          style="margin:10px; text-align:center">
       <div style="display:inline-block; margin:15px;">
         <img [src]="data.starWarsChar.fullSrc" class="avatar" style="width: 150px; height: 150px;"/>
