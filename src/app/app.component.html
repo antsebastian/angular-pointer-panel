@@ -43,15 +43,20 @@
       <span
         style="font-size: 10px;margin:0; line-height: 10px; flex-flow: row wrap;">Written by Anthony Sebastian</span>
     </div>
-    <button (click)="addItem()"
+    <button (click)="addItem()" [disabled]="this.cards.length==15"
             aria-label="Add item" mat-icon-button matTooltip="Add an item">
       <mat-icon>add</mat-icon>
     </button>
     <span style="flex: 1 1 0"></span>
+    <button (click)="help()"
+            aria-label="user help" mat-icon-button matTooltip="Show user guidance">
+      <mat-icon>question_mark</mat-icon>
+    </button>
+
     <button (click)="goToDoc()"
             aria-label="Open documentation" mat-icon-button
             matTooltip="Open GitHub source code and documentation in a new browser tab">
-      <img alt="" src="../assets/GitHub-Mark-Light-32px.png"/></button>
+      <img alt="" height="24" src="../assets/GitHub-Mark-Light-32px.png" width="24"/></button>
   </mat-toolbar>
   <div class="app-body">
     <pointer-panel-list [dataSource]="$cards"

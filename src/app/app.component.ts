@@ -31,14 +31,19 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.snackBar.open('Click on an item to see the details. Click + icon to add a new item.',
-        'Dismiss');
-
-    }, 750);
+      this.help();
+    }, 1500);
   }
 
 
   addItem() {
+    if (this.cards.length == 14) {
+      this.snackBar.open('Max 15 items reached.',
+        'Dismiss', {
+          duration: 2000,
+          verticalPosition: 'bottom'
+        });
+    }
     const jsonData =
       JSON.parse('{ "name":"' + 'Card ' + this.uniqueId++ + '", "avatarSrc":"./assets/hanssolo_a.jpg", ' +
         '"fullSrc":"./assets/hanssolo.jpg", "subtitle": "Test pointer position", ' +
@@ -67,5 +72,14 @@ export class AppComponent implements AfterViewInit {
 
   goToDoc() {
     window.open("https://github.com/antsebastian/angular-pointer-panel", "_blank");
+  }
+
+  help() {
+    this.snackBar.open('Click on an item to see the details. Click + icon to add a new item.',
+      'Dismiss',
+      {
+        verticalPosition: 'bottom',
+        duration: 5000
+      });
   }
 }
