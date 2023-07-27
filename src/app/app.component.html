@@ -39,11 +39,14 @@
                style="z-index: 5; position: relative; display: flex;
                flex-direction: row; align-items: center; gap: 10px">
     <div style="display: flex; flex-flow: column; align-items: start">
-      <span>Pointer Panel Demo</span>
+      <span [style.display]="small ? 'none' : 'inline-block'">Pointer Panel Demo</span>
+      <span [style.display]="small ? 'inline-block' : 'none'">Anthony's Demo</span>
+
       <span
+        [style.display]="small ? 'none' : 'inline-block'"
         style="font-size: 10px;margin:0; line-height: 10px; flex-flow: row wrap;">Written by Anthony Sebastian</span>
     </div>
-    <button (click)="addItem()" [disabled]="this.cards.length==15"
+    <button (click)="addItem(scroller)" [disabled]="this.cards.length==15"
             aria-label="Add item" mat-icon-button matTooltip="Add an item">
       <mat-icon>add</mat-icon>
     </button>
@@ -58,7 +61,7 @@
             matTooltip="Open GitHub source code and documentation in a new browser tab">
       <img alt="" height="24" src="../assets/GitHub-Mark-Light-32px.png" width="24"/></button>
   </mat-toolbar>
-  <div class="app-body">
+  <div #scroller class="app-body">
     <pointer-panel-list [dataSource]="$cards"
                         [itemDetailsTemplate]="myItemDetailsTemplate"
                         [itemTemplate]="myItemTemplate">

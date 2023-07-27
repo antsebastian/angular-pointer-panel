@@ -49,8 +49,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     }, 750);
   }
 
-
-  addItem() {
+  addItem(scroller: HTMLDivElement) {
     if (this.cards.length == 14) {
       this.snackBar.open('Max 15 items reached.',
         'Dismiss', {
@@ -67,6 +66,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     const icm = new StarWarsModel(jsonData);
     this.subscribeToDeleteCard(icm);
     this.cards.push(icm);
+
+    setTimeout(() => {
+      scroller.scrollTo(0, scroller.scrollHeight);
+    });
+
   }
 
   public getJSON(): Observable<IStarWarsCharacter[]> {
